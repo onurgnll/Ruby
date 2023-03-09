@@ -17,7 +17,7 @@ class Inventory
         puts "Envanterdeki Eşyalar -> "
         a = 1
         for items in @items do 
-            puts a.to_s + ". - "  + items.isim
+            puts a.to_s + ". - "  + items.isim + "    Fiyatı = (" + items.price.to_s + ")"
             a += 1
         end
         if @items.size >= 1
@@ -30,16 +30,25 @@ class Inventory
                 puts "1. Giy (Giyili olan Eşya Silinir) - 2. Sil - 3. Sat - 4. Geri"
                 
                 islem = gets.chomp.to_i
-                if islem == 4
-                    break
-                end
+                
                 if islem == 1
                     if esya.class == Sword
                         $player.damage = esya.damage
+                        @playerusedsword = true
+                        @items.delete(esya)
                     end
                     if esya.class == Armor
                         $player.defence = esya.defence
+                        @playerusedarmor = true
+                        @items.delete(esya)
                     end
+                elsif islem == 2
+                    @items.delete(esya)
+                elsif islem == 3 
+                    @items.delete(esya)
+                    $player.gold += esya.price
+                elsif islem == 4
+
                 end
             end
         end

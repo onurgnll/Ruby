@@ -17,6 +17,7 @@ class Player
         puts @isim + " İsimli oyuncunun bilgileri ->"
         puts "Can puanı -> " + @hp.to_s
         puts "Hasarı -> " + @damage.to_s
+        puts "Defansı -> " + @defence.to_s
         puts "Parası -> " + @gold.to_s
     end
 
