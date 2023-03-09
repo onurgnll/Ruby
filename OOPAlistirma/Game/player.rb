@@ -29,4 +29,43 @@ class Player
         @damage = @damage - silinecekhasar
     end
 
+    def slotOldur(player, slot)
+
+        slotdamage = slot.damage - player.defence
+        if slotdamage == 0
+            slotdamage = 0.01
+        end
+        oyuncuslotuoldurebildi = false
+
+
+
+        
+        if slot.hp / player.damage - player.hp / slotdamage < 0
+            oyuncuslotuoldurebildi = true
+        end
+
+        if oyuncuslotuoldurebildi == true
+            puts "Canavar Öldürülüyor " + slot.hp.to_s + "/" + slot.hp.to_s
+            sleep(1)
+            puts "Canavar Öldürülüyor " + (2*slot.hp/3).to_s  + "/" + slot.hp.to_s
+            sleep(1)
+            puts "Canavar Öldürülüyor " + (1*slot.hp/3).to_s + "/" + slot.hp.to_s
+            sleep(1)
+            puts "Canavar Öldürülüyor " + (0).to_s + "/" + slot.hp.to_s
+
+            puts ""
+            puts slot.gold.to_s + "TL Kazandın"
+            player.gold += slot.gold
+
+        end
+        if oyuncuslotuoldurebildi == false
+            puts "Canavar Öldürülüyor " + slot.hp.to_s + "/" + slot.hp.to_s
+            sleep(1)
+            puts "Canavar Öldürülüyor " + (2*slot.hp/3).to_s  + "/" + slot.hp.to_s
+            sleep(1)
+            puts "Canavar Öldürülüyor " + (1*slot.hp/3).to_s + "/" + slot.hp.to_s
+            sleep(1)
+            puts "Canavar Öldürülemedi Öldün!"
+        end
+    end
 end
