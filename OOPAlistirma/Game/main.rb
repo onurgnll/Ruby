@@ -16,7 +16,7 @@ puts "Oluşturulacak Oyuncunun ismi"
 $player = Player.new(isim: gets.chomp, damage: 0 , gold: 0 , inventory: Inventory.new , defence: 0)
 $player.inventory.ekle($baslangickilic)
 $player.inventory.ekle($baslangiczirh)
-
+s
 
 puts $player.isim + " Adlı Karakter oluşturuldu Oyuna başlanıyor"
 puts ""
